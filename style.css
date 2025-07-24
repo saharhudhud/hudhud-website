@@ -448,3 +448,108 @@ form button {
 form button:hover {
     background-color: #c49c2f;
 }
+
+/*
+ * Service headings with images on the Services page
+ * Displays the service image next to the heading and description in a flexible row
+ */
+.service-heading {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.service-heading img {
+    max-width: 160px;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.service-heading h2 {
+    font-family: var(--heading-font);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.service-heading p {
+    font-size: 1rem;
+    margin-bottom: 0;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+@media (max-width: 768px) {
+    .service-heading {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .service-heading img {
+        max-width: 140px;
+        margin: 0 auto;
+    }
+
+    .service-heading p {
+        text-align: center;
+    }
+}
+
+/* AI Agents icon grid */
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 2rem;
+}
+
+.icon-item {
+    text-align: center;
+}
+
+.icon-item img {
+    height: 60px;
+    width: 60px;
+    margin-bottom: 1rem;
+}
+
+.icon-item h3 {
+    font-family: var(--heading-font);
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.icon-item p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+/* Partners logo section */
+.partners {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.partners img {
+    max-height: 60px;
+    max-width: 120px;
+    /* Show partner logos in full color while maintaining subtle transparency */
+    opacity: 0.9;
+    filter: grayscale(0%);
+    transition: opacity 0.3s ease;
+}
+
+.partners img:hover {
+    opacity: 1;
+}
