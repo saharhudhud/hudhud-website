@@ -4,8 +4,9 @@
     --primary-color: #d4af37;
     --bg-color: #000000;
     --text-color: #e6e6e6;
-    --heading-font: 'Montserrat', sans-serif;
-    --body-font: 'Roboto', sans-serif;
+    /* Updated fonts to use modern, attractive Poppins */
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Poppins', sans-serif;
 }
 
 /* Global reset */
@@ -152,7 +153,8 @@ nav a:hover {
     position: relative;
     z-index: 1;
     max-width: 800px;
-    padding: 0 1rem;
+    padding: 5rem 1rem 0;
+    /* Add top padding to ensure headings do not overlap with fixed header */
 }
 
 .hero h1 {
@@ -340,6 +342,15 @@ nav a:hover {
 .clients img:hover {
     opacity: 1;
     filter: grayscale(0%);
+}
+
+/* Full width illustrative images */
+.full-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    display: block;
 }
 
 /* Footer */
