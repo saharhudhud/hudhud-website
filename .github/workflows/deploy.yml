@@ -2,8 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 permissions:
   contents: read
@@ -15,7 +14,6 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     runs-on: ubuntu-latest
 
     steps:
@@ -28,7 +26,7 @@ jobs:
       - name: Create CNAME file
         run: echo "www.hudhudsolutions.com" > ./CNAME
 
-      - name: Upload pages artifact
+      - name: Upload static content
         uses: actions/upload-pages-artifact@v2
         with:
           path: .
