@@ -1,0 +1,555 @@
+/* HudHud Solutions Website Styles */
+/* Root variables */
+:root {
+    --primary-color: #d4af37;
+    --bg-color: #000000;
+    --text-color: #e6e6e6;
+    /* Updated fonts to use modern, attractive Poppins */
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Poppins', sans-serif;
+}
+
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Header & Navigation */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo img {
+    height: 40px;
+    margin-right: 0.5rem;
+}
+
+.nav-logo span {
+    font-family: var(--heading-font);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li {
+    margin-left: 1.5rem;
+}
+
+nav a {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Mobile Navigation */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    height: 3px;
+    width: 25px;
+    background: var(--primary-color);
+    margin: 4px 0;
+    transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav li {
+        margin: 1rem 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 5rem 1rem 0;
+    /* Add top padding to ensure headings do not overlap with fixed header */
+}
+
+.hero h1 {
+    font-family: var(--heading-font);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.hero p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    font-family: var(--heading-font);
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #c49c2f;
+}
+
+/* Quote Button in header */
+.quote-btn {
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border-radius: 20px;
+    font-family: var(--heading-font);
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.quote-btn:hover {
+    background-color: #c49c2f;
+}
+
+@media (max-width: 768px) {
+    .quote-btn {
+        display: none;
+    }
+}
+
+/* Generic Section */
+/* Reduce vertical padding on sections to minimize empty space */
+.section {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section h2 {
+    font-family: var(--heading-font);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* Adjust paragraph spacing to prevent large gaps between content blocks */
+.section p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    font-size: 1rem;
+}
+
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: #111111;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #222222;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-family: var(--heading-font);
+}
+
+.card p {
+    margin-bottom: 1rem;
+}
+
+.card ul {
+    list-style: none;
+}
+
+.card ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+.card ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* Why Choose section */
+.why {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.why-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.why-item span {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.why-item p {
+    font-size: 1rem;
+}
+
+/* Stats Grid (About page) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.stats-grid h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-family: var(--heading-font);
+}
+
+.stats-grid p {
+    font-size: 1rem;
+}
+
+/* Clients Section */
+.clients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.clients img {
+    max-height: 80px;
+    max-width: 150px;
+    opacity: 0.8;
+    filter: grayscale(100%);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.clients img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+/* Full width illustrative images */
+.full-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+/* Footer */
+footer {
+    background-color: #0a0a0a;
+    padding: 2rem;
+    color: #888888;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1 1 200px;
+}
+
+.footer-section h4 {
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul a {
+    color: #aaaaaa;
+    transition: color 0.3s;
+}
+
+.footer-section ul a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Form Styles (Contact) */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: var(--heading-font);
+    color: var(--primary-color);
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    background-color: #111111;
+    color: var(--text-color);
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+form button {
+    display: inline-block;
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 30px;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    font-family: var(--heading-font);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #c49c2f;
+}
+
+/*
+ * Service headings with images on the Services page
+ * Displays the service image next to the heading and description in a flexible row
+ */
+.service-heading {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.service-heading img {
+    max-width: 160px;
+    height: auto;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.service-heading h2 {
+    font-family: var(--heading-font);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.service-heading p {
+    font-size: 1rem;
+    margin-bottom: 0;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+@media (max-width: 768px) {
+    .service-heading {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .service-heading img {
+        max-width: 140px;
+        margin: 0 auto;
+    }
+
+    .service-heading p {
+        text-align: center;
+    }
+}
+
+/* AI Agents icon grid */
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 2rem;
+}
+
+.icon-item {
+    text-align: center;
+}
+
+.icon-item img {
+    height: 60px;
+    width: 60px;
+    margin-bottom: 1rem;
+}
+
+.icon-item h3 {
+    font-family: var(--heading-font);
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.icon-item p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+/* Partners logo section */
+.partners {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.partners img {
+    max-height: 60px;
+    max-width: 120px;
+    /* Show partner logos in full color while maintaining subtle transparency */
+    opacity: 0.9;
+    filter: grayscale(0%);
+    transition: opacity 0.3s ease;
+}
+
+.partners img:hover {
+    opacity: 1;
+}
