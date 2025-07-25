@@ -15,10 +15,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Pages
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v3
 
       - name: Create CNAME file
@@ -27,7 +27,7 @@ jobs:
       - name: Upload site content
         uses: actions/upload-pages-artifact@v2
         with:
-          path: .  # Use your site's root or build directory here
+          path: .  # Adjust this path if you use a build directory
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
