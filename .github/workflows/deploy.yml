@@ -1,29 +1,33 @@
-name: Deploy Static Site to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # or 'master', depending on your default branch
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        
-      - name: Create CNAME file
-        run: echo "hudhudsolutions.com" > ./CNAME
+      - name: Checkout source
+        uses: actions/checkout@v4
 
-      - name: Upload static site files
-        uses: actions/upload-artifact@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Create CNAME file
+        run: echo "www.hudhudsolutions.com" > ./CNAME
+
+      - name: Upload static files
+        uses: actions/upload-pages-artifact@v2
         with:
-          name: site-files
-          path: ./  # Adjust if your files are in a subfolder like 'public'
+          path: .  # Ensure this includes `about.html` in the root
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # Adjust if your site is in a subfolder
+        uses: actions/deploy-pages@v2
