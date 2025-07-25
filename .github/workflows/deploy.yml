@@ -24,10 +24,10 @@ jobs:
       - name: Create CNAME file
         run: echo "www.hudhudsolutions.com" > ./CNAME
 
-      - name: Upload static files
+      - name: Upload site content
         uses: actions/upload-pages-artifact@v2
         with:
-          path: .  # Ensure this includes `about.html` in the root
+          path: .  # Use your site's root or build directory here
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
