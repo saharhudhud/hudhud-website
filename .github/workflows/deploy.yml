@@ -12,10 +12,14 @@ permissions:
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Setup GitHub Pages
@@ -24,10 +28,11 @@ jobs:
       - name: Create CNAME file
         run: echo "www.hudhudsolutions.com" > ./CNAME
 
-      - name: Upload site content
+      - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: .  # Adjust this path if you use a build directory
+          path: .
 
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v2
