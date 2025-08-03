@@ -1,12 +1,18 @@
 /* HudHud Solutions Website Styles */
 /* Root variables */
 :root {
-    --primary-color: #d4af37;
-    --bg-color: #000000;
-    --text-color: #e6e6e6;
+    /* Primary palette derived from the new HudHud logo.
+       A vibrant teal is used as the main brand colour,
+       complemented by a warm orange accent. The background
+       has been shifted to a deep navy to better suit the new colour
+       scheme. */
+    --primary-color: #00bfa5;      /* teal for headings, icons and highlights */
+    --secondary-color: #ff6d3f;    /* orange accent for buttons and emphasis */
+    --bg-color: #021a2f;           /* dark navy background */
+    --text-color: #e6e6e6;         /* light text for contrast */
     /* Updated fonts to use modern, attractive Poppins */
-    --heading-font: 'Poppins', sans-serif;
-    --body-font: 'Poppins', sans-serif;
+    --heading-font: 'Montserrat', sans-serif;
+    --body-font: 'Montserrat', sans-serif;
 }
 
 /* Global reset */
@@ -54,10 +60,12 @@ header {
     align-items: center;
 }
 
-.nav-logo img {
-    height: 40px;
-    margin-right: 0.5rem;
-}
+    .nav-logo img {
+        /* Increase logo size further so it stands out noticeably in the navigation */
+        /* Make the logo slightly larger (140px) to improve brand visibility */
+        height: 140px;
+        margin-right: 0;
+    }
 
 .nav-logo span {
     font-family: var(--heading-font);
@@ -83,7 +91,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 /* Mobile Navigation */
@@ -145,23 +153,36 @@ nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(2px);
+    /*
+     * Lighten the hero overlay so the underlying illustrations remain visible on all pages.
+     * A lower opacity and subtle blur allows the swirling patterns and imagery to shine
+     * through without washing out the text.  This change addresses user feedback
+     * that themes were not visible except on the home page.
+     */
+    /*
+     * Reduce overlay opacity further to bring out the page illustrations while keeping text readable.
+     * A 0.25 alpha allows the vibrant hero artwork to remain visible without sacrificing contrast.
+     */
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(1px);
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
     max-width: 800px;
-    padding: 5rem 1rem 0;
-    /* Add top padding to ensure headings do not overlap with fixed header */
+    /* Add extra top padding to ensure headings do not overlap with the taller fixed header */
+    padding: 6rem 1rem 0;
 }
 
 .hero h1 {
     font-family: var(--heading-font);
-    font-size: 2.5rem;
+    /* Increase hero title size slightly for better visibility */
+    font-size: 2.8rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
+    /* Add a subtle shadow so text stands out against detailed backgrounds */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .hero p {
@@ -174,7 +195,7 @@ nav a:hover {
     display: inline-block;
     padding: 0.75rem 1.5rem;
     border-radius: 30px;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: var(--bg-color);
     font-family: var(--heading-font);
     font-weight: bold;
@@ -182,14 +203,15 @@ nav a:hover {
 }
 
 .btn:hover {
-    background-color: #c49c2f;
+    /* darken the accent colour on hover */
+    background-color: #e05b33;
 }
 
 /* Quote Button in header */
 .quote-btn {
     margin-left: 1rem;
     padding: 0.5rem 1rem;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: var(--bg-color);
     border-radius: 20px;
     font-family: var(--heading-font);
@@ -198,7 +220,7 @@ nav a:hover {
 }
 
 .quote-btn:hover {
-    background-color: #c49c2f;
+    background-color: #e05b33;
 }
 
 @media (max-width: 768px) {
@@ -213,6 +235,14 @@ nav a:hover {
     padding: 3rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    /* Apply a subtle background pattern derived from the brand colours */
+    background-color: var(--bg-color);
+    background-image: url('assets/section-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* Blend the pattern with the dark background to maintain readability */
+    background-blend-mode: overlay;
 }
 
 .section h2 {
@@ -239,10 +269,10 @@ nav a:hover {
 }
 
 .card {
-    background-color: #111111;
+    background-color: #031c2e;
     padding: 2rem;
     border-radius: 8px;
-    border: 1px solid #222222;
+    border: 1px solid #0a2a3d;
     transition: transform 0.3s ease;
 }
 
@@ -262,19 +292,24 @@ nav a:hover {
 
 .card ul {
     list-style: none;
+    /* Center the list within cards for better alignment */
+    padding-left: 0;
+    text-align: center;
 }
 
 .card ul li {
     margin-bottom: 0.5rem;
-    padding-left: 1.2rem;
     position: relative;
+    padding-left: 0;
 }
 
 .card ul li::before {
     content: "•";
-    position: absolute;
-    left: 0;
+    /* Use inline-block so the bullet stays close to the text even when centered */
+    display: inline-block;
+    margin-right: 0.4rem;
     color: var(--primary-color);
+    position: static;
 }
 
 /* Why Choose section */
@@ -355,9 +390,9 @@ nav a:hover {
 
 /* Footer */
 footer {
-    background-color: #0a0a0a;
+    background-color: #011e33;
     padding: 2rem;
-    color: #888888;
+    color: #99aab8;
     font-size: 0.9rem;
 }
 
@@ -389,12 +424,12 @@ footer {
 }
 
 .footer-section ul a {
-    color: #aaaaaa;
+    color: #9eb4c8;
     transition: color 0.3s;
 }
 
 .footer-section ul a:hover {
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .footer-bottom {
@@ -420,9 +455,9 @@ textarea {
     width: 100%;
     padding: 0.75rem;
     margin-bottom: 1rem;
-    border: 1px solid #333333;
+    border: 1px solid #0a2a3d;
     border-radius: 4px;
-    background-color: #111111;
+    background-color: #031c2e;
     color: var(--text-color);
 }
 
@@ -437,7 +472,7 @@ form button {
     padding: 0.75rem;
     border: none;
     border-radius: 30px;
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: var(--bg-color);
     font-family: var(--heading-font);
     font-weight: bold;
@@ -446,7 +481,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #c49c2f;
+    background-color: #e05b33;
 }
 
 /*
@@ -519,6 +554,15 @@ form button:hover {
     margin-bottom: 1rem;
 }
 
+    /* Font Awesome icons inside the icon grid */
+    .icon-item i {
+        font-size: 3rem;
+        line-height: 1;
+        display: inline-block;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+    }
+
 .icon-item h3 {
     font-family: var(--heading-font);
     font-size: 1.1rem;
@@ -550,6 +594,108 @@ form button:hover {
     transition: opacity 0.3s ease;
 }
 
+/* QR code styling for contact page */
+.qr-code {
+    width: 180px;
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 8px;
+	margin-bottom: 10px;
+}
+
+/* Social links container (e.g., WhatsApp) */
+.social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+	font-size: 24px;
+}
+
+/* Utility class to center unordered lists on the page */
+.centered-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 0;
+    list-style: none;
+    /* Use default disc bullets for readability */
+}
+
+.centered-list li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.centered-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* Styled list for mission and values with icons */
+.mission-list,
+.values-list {
+    /* Limit the width of the mission and values lists to enhance centring */
+    max-width: 700px;
+    list-style: none;
+    padding: 0;
+    /* Make the list a block with intrinsic width so it centers via auto margins */
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.mission-list li,
+.values-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.mission-list li i,
+.values-list li i {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin-top: 0.15rem;
+}
+
+.social-links a {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
 .partners img:hover {
     opacity: 1;
+}
+
+/* QR code and social icon container on contact page */
+.qr-and-social {
+    display: flex;
+    /*
+     * Arrange the LinkedIn QR code and WhatsApp icon horizontally with spacing.
+     * A row layout ensures the icon appears beside the QR image rather than below it.
+     */
+    flex-direction: column;
+    align-items: center;
+	justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+	text-align: center;
+	margin: 0 auto;
+}
+/* Make the WhatsApp icon larger for better visibility */
+.qr-and-social .social-links a {
+    /* Make the WhatsApp icon larger for greater prominence */
+    font-size: 3.2rem;
 }
