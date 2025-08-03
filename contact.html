@@ -5,15 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us | HudHud Solutions</title>
   <!-- Import modern Poppins font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
   <div class="nav-container">
     <div class="nav-logo">
+      <!-- Show only the logo image, remove extra text label for a cleaner look -->
       <img src="assets/logo.png" alt="HudHud Solutions logo">
-      <span>HudHud Solutions</span>
     </div>
     <div class="menu-toggle">
       <span></span>
@@ -34,7 +36,8 @@
   </div>
 </header>
 
-<section class="hero" style="height:40vh; background-image: url('assets/hero-modern.png');">
+<!-- Hero section for Contact page with custom illustration -->
+<section class="hero" style="height:50vh; background-image: url('assets/hero-contact.png');">
   <div class="hero-content">
     <h1>Contact Us</h1>
     <p>We’d love to hear from you. Reach out for a consultation today.</p>
@@ -64,6 +67,15 @@
     <p>Al Qusais, Dubai, United Arab Emirates</p>
     <p>+971 567804269</p>
     <p><a href="mailto:info@hudhudsolutions.com">info@hudhudsolutions.com</a></p>
+    <!-- LinkedIn QR code and WhatsApp link grouped together -->
+    <div class="qr-and-social">
+      <img src="assets/linkedin_qr.jpeg" alt="LinkedIn profile QR code" class="qr-code">
+      <div class="social-links">
+        <a href="https://wa.me/971567804269" aria-label="Chat with us on WhatsApp" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
